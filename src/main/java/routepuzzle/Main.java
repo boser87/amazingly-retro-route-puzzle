@@ -6,9 +6,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Main {
+
     public static void main(String[] args) {
 
         CommandLineArgumentParser argumentParser = new CommandLineArgumentParser(args);
+
+        Arrays.stream(args).forEach(s -> System.out.println(s));
 
         RoomMapReader roomMapReader = null;
         try {
@@ -16,6 +19,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         Map<Integer, Room> roomMap = roomMapReader.getRoomMap();
         Puzzle puzzle = new Puzzle(roomMap);
         puzzle.solveAndPrettyPrintMoves(

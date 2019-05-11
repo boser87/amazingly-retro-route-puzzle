@@ -2,6 +2,9 @@ package routepuzzle;
 
 import org.apache.commons.cli.*;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class CommandLineArgumentParser {
 
     private String fileName;
@@ -34,7 +37,7 @@ public class CommandLineArgumentParser {
 
             this.fileName = cmd.getOptionValue("fileName");
             this.startingRoom = ((Number) cmd.getParsedOptionValue("startingRoom")).intValue();
-            this.itemsToFind = cmd.getOptionValues("itemsToFind");
+            this.itemsToFind = Arrays.stream(cmd.getOptionValues("itemsToFind")).map(it -> it.toLowerCase()).collect(Collectors.toList()).toArray(new String[0]);
         } catch (ParseException e) {
             e.printStackTrace();
             formatter.printHelp("utility-name", options);

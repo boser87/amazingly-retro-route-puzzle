@@ -34,10 +34,10 @@ public class JSONRoomMapReaderTest {
                         new RoomBuilder().setId(3)
                                 .setName("Kitchen")
                                 .setEast(2)
-                                .addItem("Knife").createRoom(),
+                                .addItem("Knife".toLowerCase()).createRoom(),
                         new RoomBuilder().setId(4)
                                 .setName("Sun Room")
                                 .setWest(2)
-                                .addItem("Potted Plant").createRoom());
+                                .addItem("Potted Plant".toLowerCase()).createRoom());
     }
 }

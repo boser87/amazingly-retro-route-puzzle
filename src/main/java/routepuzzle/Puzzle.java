@@ -44,7 +44,10 @@ public class Puzzle {
         Set<Item> collectedItemsInTheRoom = collectItemsInTheRoom(room, remainingItems);
         updateItemsToCollect(collectedItemsInTheRoom);
 
-        moves.add(new Move(room, collectedItemsInTheRoom));
+        // notice here how we have to create a new set out of collectedItemsInTheRoom
+        // if we don't do so, subsequent call to collectedItemsInTheRoom.retainAll will modify
+        // the collectedItemsInTheRoom referenced by the previously saved Moves
+        moves.add(new Move(room, Collections.unmodifiableSet(new HashSet<>(collectedItemsInTheRoom))));
 
         visitedRooms.add(room);
 

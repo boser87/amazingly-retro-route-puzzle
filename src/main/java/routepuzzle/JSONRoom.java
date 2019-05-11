@@ -46,16 +46,14 @@ public class JSONRoom {
     }
 
     public Room convertToRoom() {
-        List<Item> roomItems  = objects.stream().map(jsonItem -> new Item(jsonItem.getName())).collect(Collectors.toList());
         Room room = new RoomBuilder()
                 .setId(id)
                 .setName(name)
-                .addItems(roomItems)
                 .setEast(east)
                 .setNorth(north)
                 .setSouth(south)
                 .setWest(west)
-                .addItems(objects.stream().map(object -> new Item(object.getName())).collect(Collectors.toList()))
+                .addItems(objects.stream().map(object -> new Item(object.getName().toLowerCase())).collect(Collectors.toList()))
                 .createRoom();
         return room;
     }
