@@ -13,7 +13,6 @@ public class Move {
         this.itemsCollected = itemsCollected;
     }
 
-
     @Override
     public int hashCode() {
         return Objects.hash(room, itemsCollected);
