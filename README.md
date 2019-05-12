@@ -7,7 +7,7 @@ Uses DFS (Depth first search) with backtracking for exploring the graph.
 - Testing library: JUnit, AssertJ
 - Supporting libraries: Jackson (JSON parsing), Commons CLI (program arguments parsing)
 
-In order to run the examples through Docker:
+In order to build/test the project through Docker:
 
 - build: docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/build.sh
 
