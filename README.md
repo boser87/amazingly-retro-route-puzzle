@@ -9,11 +9,13 @@ Uses DFS (Depth first search) with backtracking for exploring the graph.
 
 In order to build/test the project through Docker:
 
-- build: docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/build.sh
+- build Docker image: docker build -t mypuzzle .
 
-- run tests: docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/test.sh
+- build the project in the Docker container: docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/build.sh
 
-A few examples to run the puzzle:
+- run tests in the Docker container: docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/test.sh
+
+A few examples to run the puzzle in the Docker container:
 
 - docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/run.sh -f map1.json -r 2 -i Knife
 - docker run -v $(pwd):/mnt -w /mnt mypuzzle ./scripts/run.sh -f map2.json -r 2 -i Pillow Knife
